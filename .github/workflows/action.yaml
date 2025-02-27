@@ -22,7 +22,7 @@ jobs:
         project_id: 'glasnt-github-auth-5815'
         workload_identity_provider: projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo
         service_account: github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com
-        id_token_audience: https://run.googleapis.com # all
+        id_token_audience: https://hello-551258563214.us-central1.run.app
         token_format: 'id_token'
     - run: |-
          curl -H 'Bearer: ${{ steps.auth.outputs.id_token }}' https://hello-551258563214.us-central1.run.app --fail-with-body
