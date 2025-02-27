@@ -25,4 +25,5 @@ jobs:
         id_token_include_email: true
         token_format: 'id_token'
     - run: |-
+         console.log(typeOf(${{ steps.auth.outputs.id_token }}))
          curl -H 'Bearer: ${{ steps.auth.outputs.id_token }}' https://hello-551258563214.us-central1.run.app --fail-with-body
