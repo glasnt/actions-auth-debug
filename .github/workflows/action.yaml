@@ -17,7 +17,7 @@ jobs:
     - uses: 'google-github-actions/auth@v2'
       id: auth
       with:
-        project_id: 'my-project'
+        project_id: 'glasnt-github-auth-5815'
         workload_identity_provider: projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo
         service_account: github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com
     - run: |-
