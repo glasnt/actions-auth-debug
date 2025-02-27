@@ -1,6 +1,7 @@
 name: action
 
 on: 
+  push: [main]
   workflow_dispatch:
 
 jobs:
@@ -20,5 +21,6 @@ jobs:
         project_id: 'glasnt-github-auth-5815'
         workload_identity_provider: projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo
         service_account: github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com
+        token_format: 'access_token'
     - run: |-
-         curl -H 'Bearer: ${{ steps.auth.outputs.auth_token }}' https://hello-551258563214.us-central1.run.app --fail-with-body
+         curl -H 'Bearer: ${{ steps.auth.outputs.access_token }}' https://hello-551258563214.us-central1.run.app --fail-with-body
