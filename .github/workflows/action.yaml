@@ -24,7 +24,7 @@ jobs:
       with:
         workload_identity_provider: 'projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo'
         service_account: 'github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com'
-        id_token_audience: ${{ env.CLOUD_RUN_SERVICE }}
+        id_token_audience: https://run.app # general
         id_token_include_email: true
         token_format: 'id_token'
     - id: get-service
