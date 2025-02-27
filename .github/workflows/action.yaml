@@ -1,0 +1,24 @@
+name: action
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  job_id:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - uses: 'actions/checkout@v4'
+
+    - uses: 'google-github-actions/auth@v2'
+      id: auth
+      with:
+        project_id: 'my-project'
+        workload_identity_provider: projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo
+
+    - run: |-
+         curl -H 'Bearer: ${{ steps.auth.outputs.auth_token }}' https://hello-551258563214.us-central1.run.app
