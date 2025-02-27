@@ -29,4 +29,4 @@ jobs:
         token_format: 'id_token'
     - id: get-service
       run: |-
-          curl -H "Authorization: Bearer ${{ steps.auth.outputs.id_token }}" ${{ env.CLOUD_RUN_SERVICE }} --fail-with-body
+        curl -H "Authorization: Bearer ${{ steps.auth.outputs.id_token }}" ${{ env.CLOUD_RUN_SERVICE }} --fail-with-body
