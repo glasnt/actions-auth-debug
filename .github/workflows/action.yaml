@@ -19,10 +19,10 @@ jobs:
     - uses: 'google-github-actions/auth@v2'
       id: auth
       with:
-        workload_identity_provider: projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo
-        service_account: github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com
-        id_token_audience: https://hello-551258563214.us-central1.run.app
+        workload_identity_provider: 'projects/551258563214/locations/global/workloadIdentityPools/github/providers/my-repo'
+        service_account: 'github-action-sa@glasnt-github-auth-5815.iam.gserviceaccount.com'
+        id_token_audience: 'https://hello-551258563214.us-central1.run.app'
         id_token_include_email: true
-        token_format: id_token
+        token_format: 'id_token'
     - run: |-
          curl -H 'Bearer: ${{ steps.auth.outputs.id_token }}' https://hello-551258563214.us-central1.run.app --fail-with-body
